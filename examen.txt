@@ -1,0 +1,7 @@
+
+Hacer una aplicacion web que gestione una agenda, nombre y numero de telefono, clase y añadir a array, listar insertar y modificar
+No necesitamos interfaz gráfica, hacer lo que queramos podemos hacer un archivo por cada opcion o tambien con css hacer formulario o 4 y dissable con css o algo parecido
+Mostrar amigos, insertar, borrar, modificar
+
+
+
