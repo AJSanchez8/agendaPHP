@@ -9,7 +9,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <title>Agenda App</title>
-    <link href="estilos.css" rel="stylesheet">
+    <link href="./style/style.css" rel="stylesheet">
 </head>
 <body>
     <div id="header">
