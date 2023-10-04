@@ -113,3 +113,12 @@ li::before {
     margin-right: 10px;
     font-size: 18px;
 }
+.vacia{
+background-color: red;
+color: black;
+border: 2px solid black;
+margin: 0px auto;
+margin-top: 10px;
+padding: 5px;
+width: 75%;
+}

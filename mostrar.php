@@ -38,7 +38,7 @@ include('Amigo.php');
             }
             echo "</ul>";
         } else {
-            echo "La lista de amigos está vacía.";
+            echo "<div class='vacia'>La lista de amigos está vacía.</div>";
         }
         ?>
 

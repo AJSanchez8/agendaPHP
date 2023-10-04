@@ -44,7 +44,7 @@ session_start();
             }
             echo "</ul>";
         } else {
-            echo "La lista de amigos está vacía.";
+            echo "<div class='vacia'>La lista de amigos está vacía.</div>";
         }
         ?>
     </div>

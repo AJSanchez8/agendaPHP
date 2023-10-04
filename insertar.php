@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         echo "</ul>";
     } else {
-        echo "La lista de amigos está vacía.";
+        echo "<div class='vacia'>La lista de amigos está vacía.</div>";
     }
 
         ?>
