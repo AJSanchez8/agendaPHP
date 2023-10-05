@@ -25,8 +25,7 @@ session_start();
 echo (
     "<a class='button' href='mostrar.php'>Mostrar amigos</a>
     <a class='button' href='insertar.php'>Insertar nuevo amigo</a>
-    <a class='button' href='borrar.php'>Borrar amigos</a>
-    <a class='button' href='editar.php'>Editar amigos</a>"
+    <a class='button' href='borrar.php'>Borrar/editar amigos</a>"
 );
             echo "<hr>";
             
@@ -35,7 +34,7 @@ echo (
                 echo "<li class='vacia'>Lista vacía</li>";
             } else {
                 foreach ($_SESSION['listaNombre'] as $amigo) {
-                    echo "<li>Nombre: " . $amigo->getNombre() . " 📱Teléfono: " . $amigo->getNumero();
+                    echo "<li>👥: " . $amigo->getNombre() . " ---->📱 " . $amigo->getNumero();
                 }
             }
             echo "</ul>";

@@ -36,8 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo (
                 "<a class='button' href='mostrar.php'>Mostrar amigos</a>
                 <a class='button' href='insertar.php'>Insertar nuevo amigo</a>
-                <a class='button' href='borrar.php'>Borrar amigos</a>
-                <a class='button' href='editar.php'>Editar amigos</a>"
+                <a class='button' href='borrar.php'>Borrar/editar amigos</a>"
             );
         ?>
         <?php 
@@ -51,6 +50,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                           <input type='hidden' name='nombre' value='" . $amigo->getNombre() . "'>
                           <input class='botonBorrar' type='submit' value='Eliminar' >
                       </form>
+                      <form method='post' action='botonEditar.php'> 
+                      <input type='hidden' name='nombre' value='" . $amigo->getNombre() . "'> // Probar a mandar por post el nombre para que salga en el formulario
+                      <input class='botonEditar' type='submit' value='Editar' >
+                  </form>
                       </li>";
             }
         }

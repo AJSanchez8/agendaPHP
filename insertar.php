@@ -33,8 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 echo (
     "<a class='button' href='mostrar.php'>Mostrar amigos</a>
     <a class='button' href='insertar.php'>Insertar nuevo amigo</a>
-    <a class='button' href='borrar.php'>Borrar amigos</a>
-    <a class='button' href='editar.php'>Editar amigos</a>"
+    <a class='button' href='borrar.php'>Borrar/editar amigos</a>"
 );
             
         ?>
@@ -47,7 +46,7 @@ echo (
                 <input type="text" id="nombre" name="nombre" required>
 
                 <label for="numero">Teléfono:</label>
-                <input type="number" id="numero" name="numero" required>
+                <input type="number" min="100000000" max="999999999" id="numero" name="numero" required>
 
             <input type="submit" value="Añadir Amigo">
         </form>

@@ -3,6 +3,15 @@ include('Amigo.php');
 session_start();
 
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nombre = $_POST["nombre"];
+    $numero = $_POST["numero"];
+    
+    // Agregar amigo con nombre y número
+    agregarAmigo($nombre, $numero);
+    header("Location: mostrar.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,39 +29,43 @@ session_start();
     </div>
     <div id="menu">
         <?php
-            echo (
-                "<a class='button' href='mostrar.php'>Mostrar amigos</a>
-                <a class='button' href='insertar.php'>Insertar nuevo amigo</a>
-                <a class='button' href='borrar.php'>Borrar amigos</a>
-                <a class='button' href='editar.php'>Editar amigos</a>"
-            );
-        ?> 
-        <hr>
-    <div id="añadirHeader"><h2>Editar Amigo</h2></div>
+
+echo (
+    "<a class='button' href='mostrar.php'>Mostrar amigos</a>"
+);
+            
+        ?>
+
+
         <div id="add-friend-form">
-        <h2>Nombre del amigo a <strong class="editar">EDITAR</strong></h2>
-            <form action="procesar_formulario.php" method="post">
+        <h2>EDITA :</h2>
+            <form action="insertar.php" method="post">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
+
+                <label for="numero">Teléfono:</label>
+                <input type="number" min="100000000" max="999999999" id="numero" name="numero" required>
+
             <input type="submit" value="Añadir Amigo">
         </form>
         </div>
+
         <?php 
+
         echo "<ul>";
         if (empty($_SESSION['listaNombre'])) {
             echo "<li class='vacia'>Lista vacía</li>";
         } else {
             foreach ($_SESSION['listaNombre'] as $amigo) {
-                echo "<li class='amigoBorrar'>👥: " . $amigo->getNombre() . " -->📱: " . $amigo->getNumero() . "
-                      <form method='post' action='botonBorrar.php'> 
-                          <input type='hidden' name='nombre' value='" . $amigo->getNombre() . "'>
-                          <input class='botonBorrar' type='submit' value='Eliminar' >
-                      </form>
-                      </li>";
+                echo "<li>👥: " . $amigo->getNombre() . " ---->📱 " . $amigo->getNumero();
             }
         }
         echo "</ul>";
+
         ?>
+
+
+
     </div>
 </body>
 </html>
