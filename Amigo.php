@@ -28,14 +28,25 @@ function agregarAmigo($nombre, $numero) {
     $_SESSION["listaNombre"][] =$amigoAñadir;
 }
 
-    // Método para borrar un amigo por su nombre
-    function borrarAmigo(&$listaAmigos, $nombre) {
-        foreach ($listaAmigos as $indice => $amigo) {
-            if ($amigo["nombre"]== $nombre) {
-                unset($listaAmigos[$indice]); // Elimina el amigo de la lista SPOILER: NO ELIMINA A NADIE DE NINGUN SITIO.
+
+
+    // // Método para borrar un amigo por su nombre
+    // function borrarAmigo(&$listaAmigos, $nombre) {
+    //     foreach ($listaAmigos as $indice => $amigo) {
+    //         if ($amigo["nombre"]== $nombre) {
+    //             unset($listaAmigos[$indice]); // Elimina el amigo de la lista SPOILER: NO ELIMINA A NADIE DE NINGUN SITIO.
+    //         }
+    //     }
+    // }
+
+    function eliminarAmigo(&$lista, $nombre) {
+        foreach ($lista as $indice => $amigo) { // Se agrega la flecha => para obtener el índice y el objeto
+            if ($amigo->getNombre() == $nombre) {
+                unset($lista[$indice]); // Se utiliza $indice para eliminar el elemento correcto
             }
         }
     }
 
+    
 
 ?>

@@ -22,30 +22,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="./style/style.css" rel="stylesheet">
 </head>
 <body>
-    <div id="header">
-        <h1>Agenda App</h1>
+<div id="header">
+        <img src='./resources/php.png'>
+        <h1>Agenda</h1>
+        <a href="https://github.com/AJSanchez8/agendaPHP" target=_blank><img src='./resources/github2.png' alt='Enlace gitHub'></a>
     </div>
     <div id="menu">
         <?php
 
-        echo (
-            "<a class='button' href='mostrar.php'>Mostrar amigos</a>
-            <a class='button' href='insertar.php'>Insertar nuevo amigo</a>
-            <a class='button' href='borrar.php'>Borrar amigos por nombre</a>
-            <a class='button' href='editar.php'>Editar amigos por nombre</a>"
-        );
+echo (
+    "<a class='button' href='mostrar.php'>Mostrar amigos</a>
+    <a class='button' href='insertar.php'>Insertar nuevo amigo</a>
+    <a class='button' href='borrar.php'>Borrar amigos</a>
+    <a class='button' href='editar.php'>Editar amigos</a>"
+);
             
         ?>
-        <div id="añadirHeader"><h2>Añadir Amigo</h2></div>
+
 
         <div id="add-friend-form">
-        <h2>Rellena los datos:</h2>
+        <h2>Añade amigo:</h2>
             <form action="insertar.php" method="post">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
 
                 <label for="numero">Teléfono:</label>
-                <input type="text" id="numero" name="numero" required>
+                <input type="number" id="numero" name="numero" required>
 
             <input type="submit" value="Añadir Amigo">
         </form>
@@ -54,9 +56,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php 
 
         echo "<ul>";
-        foreach($_SESSION['listaNombre'] as $amigo){
-            echo "<li>Nombre: ".$amigo->getNombre()." 📱Teléfono: ".$amigo->getNumero();
-
+        if (empty($_SESSION['listaNombre'])) {
+            echo "<li class='vacia'>Lista vacía</li>";
+        } else {
+            foreach ($_SESSION['listaNombre'] as $amigo) {
+                echo "<li>👥: " . $amigo->getNombre() . " ---->📱 " . $amigo->getNumero();
+            }
         }
         echo "</ul>";
 
