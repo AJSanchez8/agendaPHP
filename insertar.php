@@ -1,6 +1,7 @@
 <?php
-session_start();
 include('Amigo.php');
+session_start();
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST["nombre"];
@@ -8,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Agregar amigo con nombre y número
     agregarAmigo($nombre, $numero);
-    header("Location: mostrar.php"); // Reemplaza "mostrar.php" por la página a la que deseas redirigir
+    header("Location: mostrar.php");
     exit();
 }
 ?>
@@ -52,17 +53,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <?php 
 
-    if (isset($_SESSION["listaNombre"]) && !empty($_SESSION["listaNombre"])) {
         echo "<ul>";
-        foreach ($_SESSION["listaNombre"] as $amigo) {
-            if (isset($amigo["nombre"]) && isset($amigo["numero"])) {
-                echo "<li>Nombre: " . $amigo["nombre"] . ", Teléfono: " . $amigo["numero"] . "</li>";
-            }
+        foreach($_SESSION['listaNombre'] as $amigo){
+            echo "<li>Nombre: ".$amigo->getNombre()." 📱Teléfono: ".$amigo->getNumero();
+
         }
         echo "</ul>";
-    } else {
-        echo "<div class='vacia'>La lista de amigos está vacía.</div>";
-    }
 
         ?>
 

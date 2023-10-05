@@ -109,16 +109,17 @@ li:hover {
 }
 
 li::before {
-    content: "👥"; /* Puedes cambiar este icono por otro */
+    content: "👥"; 
     margin-right: 10px;
     font-size: 18px;
 }
 .vacia{
-background-color: red;
+background-color: rgb(217, 77, 77);
 color: black;
 border: 2px solid black;
 margin: 0px auto;
 margin-top: 10px;
 padding: 5px;
 width: 75%;
+border-radius: 10px;
 }

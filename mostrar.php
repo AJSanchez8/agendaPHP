@@ -1,8 +1,9 @@
 <?php
-session_start();
-
 // Incluimos la clase amigo
 include('Amigo.php');
+session_start();
+
+
 
 ?>
 <!DOCTYPE html>
@@ -27,19 +28,25 @@ include('Amigo.php');
             );
             echo "<hr>";
             
-        
-        // Verifica si $_SESSION["listaNombre"] existe y verifica tambien si esta vacío
-        if (isset($_SESSION["listaNombre"]) && !empty($_SESSION["listaNombre"])) {
             echo "<ul>";
-            foreach ($_SESSION["listaNombre"] as $amigo) {
-                if (isset($amigo["nombre"]) && isset($amigo["numero"])) { //muestra si el objeto amigo existe y si esta vacío
-                    echo "<li>Nombre: " . $amigo["nombre"] . ", Teléfono: " . $amigo["numero"] . "</li>";
-                }
+            foreach($_SESSION['listaNombre'] as $amigo){
+                echo "<li>Nombre: ".$amigo->getNombre()." 📱 Numero de teléfono: ".$amigo->getNumero();
+ 
             }
             echo "</ul>";
-        } else {
-            echo "<div class='vacia'>La lista de amigos está vacía.</div>";
-        }
+
+        // Verifica si $_SESSION["listaNombre"] existe y verifica tambien si esta vacío
+        // if (isset($_SESSION["listaNombre"]) && !empty($_SESSION["listaNombre"])) {
+        //     echo "<ul>";
+        //     foreach ($_SESSION["listaNombre"] as $amigo) {
+        //         if (isset($amigo["nombre"]) && isset($amigo["numero"])) { //muestra si el objeto amigo existe y si esta vacío
+        //             echo "<li>Nombre: " . $amigo["nombre"] . ", Teléfono: " . $amigo["numero"] . "</li>";
+        //         }
+        //     }
+        //     echo "</ul>";
+        // } else {
+        //     echo "<div class='vacia'>La lista de amigos está vacía.</div>";
+        // }
         ?>
 
     </div>

@@ -1,16 +1,17 @@
 <?php
-session_start();
 include('Amigo.php');
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombreABorrar = $_POST["nombre"];
 
-    // Supongamos que $_SESSION["listaNombre"] es un array de objetos Amigo
+
+    // $_SESSION["listaNombre"] es un array de objetos Amigo
     if (isset($_SESSION["listaNombre"]) && !empty($_SESSION["listaNombre"])) {
         borrarAmigo($_SESSION["listaNombre"], $nombreABorrar);
     }
 
-    // Redirigir de nuevo a mostrar.php o a donde desees
+    // Redirigir de nuevo para mostrar.php 
     header("Location: mostrar.php");
     exit();
 }
@@ -48,18 +49,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
         </div>
         <?php 
-        if (isset($_SESSION["listaNombre"]) && !empty($_SESSION["listaNombre"])) {
             echo "<ul>";
-            foreach ($_SESSION["listaNombre"] as $amigo) {
-                if (isset($amigo["nombre"]) && isset($amigo["numero"])) {
-                    echo "<li>Nombre: " . $amigo["nombre"] . ", Teléfono: " . $amigo["numero"] . "</li>";
-                }
+            foreach($_SESSION['listaNombre'] as $amigo){
+                echo "<li>Nombre: ".$amigo->getNombre()." 📱Teléfono: ".$amigo->getNumero();
+ 
             }
             echo "</ul>";
-        } else {
-            echo "<div class='vacia'>La lista de amigos está vacía.</div>";
-        }
-        var_dump($_SESSION['listaNombre']);
+        // var_dump($_SESSION['listaNombre']);
         ?>
         
     </div>
